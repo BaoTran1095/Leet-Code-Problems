@@ -1,13 +1,9 @@
 
 public class MergeLinkedList {
 	public static void main(String[] args) {
-		ListNode list1 = new ListNode(1);
-		list1.next = new ListNode(2);
-		list1.next.next = new ListNode(4);
+		ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
 		
-		ListNode list2 = new ListNode(1);
-		list2.next = new ListNode(3);
-		list2.next.next = new ListNode(4);
+		ListNode list2 = new ListNode(2, new ListNode(3, new ListNode(4)));
 		
 		mergeTwoLists(list1, list2);
 	}
@@ -20,7 +16,7 @@ public class MergeLinkedList {
         if(list1 == null && list2 != null){return list2;}
         if(list1 != null && list2 == null){return list1;}
 		
-		while(list1.next != null || list2.next!= null) {
+		while(list1 != null && list2 != null) {
 			if(list1.val == list2.val) {
 				temp.next = new ListNode(list1.val);
 				temp = temp.next;
@@ -29,7 +25,7 @@ public class MergeLinkedList {
 				
 				list1 = list1.next;
 				list2 = list2.next;
-			}if(list1.val < list2.val) {
+			}else if(list1.val < list2.val) {
 				temp.next = new ListNode(list1.val);
 				temp = temp.next;
 				list1 = list1.next;
