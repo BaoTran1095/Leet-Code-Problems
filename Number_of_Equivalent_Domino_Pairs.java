@@ -1,4 +1,4 @@
-
+//Incompleted solution. Will crash with hugh data size, because of long running time.
 public class Number_of_Equivalent_Domino_Pairs {
 
 	public static void main(String[] args) {
